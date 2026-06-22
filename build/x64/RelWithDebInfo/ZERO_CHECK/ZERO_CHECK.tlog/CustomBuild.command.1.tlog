@@ -1,0 +1,10 @@
+^C:\USERS\REID\DOWNLOADS\GD MOD\BUILD\CMAKEFILES\01E058AA58367432E9A62B347C3F1C4B\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Reid/Downloads/gd mod" "-BC:/Users/Reid/Downloads/gd mod/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Reid/Downloads/gd mod/build/AutoDecoratorAI.slnx"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

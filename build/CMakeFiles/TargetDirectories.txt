@@ -1,0 +1,3 @@
+C:/Users/Reid/Downloads/gd mod/build/CMakeFiles/AutoDecoratorAI.dir
+C:/Users/Reid/Downloads/gd mod/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Reid/Downloads/gd mod/build/CMakeFiles/ZERO_CHECK.dir

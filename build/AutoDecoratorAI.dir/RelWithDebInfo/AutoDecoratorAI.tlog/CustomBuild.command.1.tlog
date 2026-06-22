@@ -1,0 +1,10 @@
+^C:\USERS\REID\DOWNLOADS\GD MOD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Reid/Downloads/gd mod" "-BC:/Users/Reid/Downloads/gd mod/build" --check-stamp-file "C:/Users/Reid/Downloads/gd mod/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
