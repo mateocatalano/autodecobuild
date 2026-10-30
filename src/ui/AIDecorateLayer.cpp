@@ -2,7 +2,7 @@
 #include "../presets/AIPresetManager.hpp"
 #include <Geode/Geode.hpp>
 
-using namespace geode::preload;
+using namespace geode::prelude;
 
 namespace AutoDecoratorAI {
 

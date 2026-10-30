@@ -2,7 +2,7 @@
 #include <Geode/Geode.hpp>
 #include <filesystem>
 
-using namespace geode::preload;
+using namespace geode::prelude;
 
 namespace AutoDecoratorAI {
 

@@ -1,0 +1,28 @@
+name: Build Geode Mod
+
+on:
+  push:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Mod with Geode SDK
+        uses: geode-sdk/build-geode-mod@main
+        id: build
+        with:
+          sdk: latest
+          build-config: RelWithDebInfo
+
+      - name: Upload .geode Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoDecoratorAI-Windows
+          path: ${{ steps.build.outputs.build-output }}

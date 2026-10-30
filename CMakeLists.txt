@@ -1,40 +1,22 @@
-cmake_minimum_required(VERSION 3.15)
-project(AutoDecoratorAI)
-
+cmake_minimum_required(VERSION 3.21)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Source files
-set(SOURCES
-    src/ModMain.cpp
-    src/ui/AIDecorateLayer.cpp
-    src/engine/AIDecorationEngine.cpp
-    src/engine/GeometryAnalyzer.cpp
-    src/engine/PatternDetector.cpp
-    src/presets/AIPresetManager.cpp
-    src/presets/AIPresetData.cpp
-)
+project(AutoDecoratorAI VERSION 1.0.0)
 
-# Header files
-set(HEADERS
-    src/ui/AIDecorateLayer.hpp
-    src/engine/AIDecorationEngine.hpp
-    src/engine/GeometryAnalyzer.hpp
-    src/engine/PatternDetector.hpp
-    src/presets/AIPresetManager.hpp
-    src/presets/AIPresetData.hpp
-)
+if (NOT DEFINED ENV{GEODE_SDK})
+    message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable.")
+endif()
 
-# Create shared library (DLL)
+add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
+
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS src/*.hpp)
+
 add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-# Set output name
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    OUTPUT_NAME "AutoDecoratorAI"
-    PREFIX ""
-    SUFFIX ".dll"
-)
+setup_geode_mod(${PROJECT_NAME})
